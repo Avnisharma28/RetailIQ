@@ -390,15 +390,67 @@ store_filtered["WAPE"] = (
     * 100
 )
 
-fig2 = px.bar(
-    store_filtered.sort_values("WAPE", ascending=False),
-    x="Store",
-    y="WAPE",
-    color="WAPE",
-    labels={"WAPE": "Forecast WAPE (%)"}
-)
 
-st.plotly_chart(style_chart(fig2), use_container_width=True)
+# Store Forecasting Performance Visualization
+
+if len(store_filtered) > 1:
+
+    # Compare forecasting accuracy across stores
+    fig2 = px.bar(
+        store_filtered.sort_values("WAPE", ascending=False),
+        x="Store",
+        y="WAPE",
+        color="WAPE",
+        labels={
+            "Store": "Store",
+            "WAPE": "Forecast WAPE (%)"
+        }
+    )
+
+    fig2.update_traces(
+        hovertemplate=(
+            "Store: %{x}<br>"
+            "Forecast WAPE: %{y:.2f}%"
+            "<extra></extra>"
+        )
+    )
+
+    st.plotly_chart(
+        style_chart(fig2),
+        use_container_width=True
+    )
+
+elif len(store_filtered) == 1:
+
+    # Show a focused performance summary for one store
+    selected_store = store_filtered.iloc[0]
+
+    store_wape = selected_store["WAPE"]
+    store_accuracy = 100 - store_wape
+
+    st.markdown(
+        f"### Store {int(selected_store['Store'])} Performance"
+    )
+
+    col1, col2 = st.columns(2)
+
+    col1.metric(
+        "Forecast WAPE",
+        f"{store_wape:.2f}%"
+    )
+
+    col2.metric(
+        "100% − WAPE",
+        f"{store_accuracy:.2f}%"
+    )
+
+    st.caption(
+        "100% − WAPE is a descriptive complement to "
+        "forecast error, not a formal accuracy score."
+    )
+
+else:
+    st.info("No store performance data available.")
 
 # Forecast risk monitoring
 st.markdown("### Forecast Risk Monitor")
