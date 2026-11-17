@@ -2,9 +2,18 @@
 # RetailIQ
 ### AI-Powered Retail Sales Forecasting & Decision Intelligence
 
+[🚀 Live Dashboard](https://retailiq-avni.streamlit.app) | [GitHub Repository](https://github.com/Avnisharma28/RetailIQ)
+
 RetailIQ is an end-to-end retail analytics and machine learning project that forecasts weekly department-level sales and translates predictions into actionable business insights.
 
 Built using historical Walmart sales data, RetailIQ combines predictive modeling, interactive analytics, forecast risk monitoring, and scenario simulation in a Streamlit dashboard.
+
+## Dashboard Preview
+
+![RetailIQ Dashboard](reports/figures/dashboard_preview.png)
+
+[Explore the Live Dashboard](https://retailiq-avni.streamlit.app)
+
 
 ## Business Problem
 
@@ -62,19 +71,29 @@ The dataset is historical and is used for model development and retrospective ev
 6. Generate four-week forecasting results.
 7. Present forecasts, diagnostics, and business insights in Streamlit.
 
+
 ## Model Performance
 
-The four-week forecasting evaluation produced the following results on comparable historical validation observations:
+RetailIQ evaluates four-week-ahead sales forecasts using historical Walmart sales data. The machine learning model was compared against a baseline forecasting approach using the same historical validation observations.
 
 | Metric | Result |
 |---|---|
 | Baseline MAE | $6,273 |
 | Machine Learning MAE | $5,028 |
-| MAE Improvement | 19.84% |
+| MAE Improvement | **19.84%** |
 
-The dashboard also reports forecast WAPE, average signed error, and store-level forecasting performance.
+The machine learning model achieved a **19.84% reduction in Mean Absolute Error (MAE)** compared with the baseline, reducing average absolute forecasting error by approximately **$1,245 per evaluated forecast**.
 
-These results reflect historical backtesting and do not guarantee future operational performance.
+This improvement indicates that the machine learning model produced more accurate sales predictions than the baseline on the evaluated historical data.
+
+The dashboard also provides additional performance metrics:
+
+- **WAPE (Weighted Absolute Percentage Error):** Measures forecasting error relative to actual sales volume.
+- **Average Signed Error (Bias):** Helps identify systematic overforecasting or underforecasting.
+- **Store-Level Performance:** Highlights differences in forecasting accuracy across Walmart stores.
+
+**Note:** These results are based on historical backtesting rather than live forecasting. Model performance may vary across stores, departments, and future periods.
+
 
 ## Dashboard
 
@@ -173,7 +192,8 @@ RetailIQ demonstrates how predictive analytics can support retail decision-makin
 - Forecast uncertainty intervals
 - Stronger seasonal baseline comparisons
 - Automated model monitoring
-- Cloud deployment
+- More advanced demand scenario modeling
+- Improved inventory planning recommendations
 
 ---
 
