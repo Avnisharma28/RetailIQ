@@ -1,0 +1,3 @@
+
+# Exclude generated HTML visualizations from language statistics
+reports/figures/*.html linguist-generated=true
