@@ -1,3 +1,4 @@
 
-# Exclude generated HTML visualizations from language statistics
-reports/figures/*.html linguist-generated=true
+# Exclude generated HTML visualizations from GitHub language statistics
+reports/figures/*.html linguist-generated
+reports/figures/*.html -linguist-detectable
