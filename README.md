@@ -25,7 +25,7 @@ RetailIQ explores how machine learning can improve sales forecasting and help an
 
 ## Key Features
 
-- **Four-Week Sales Forecasting:** Predicts future weekly sales at the store-department level.
+- **Four-Week Sales Forecasting:** Generates four-week-ahead store-department sales forecasts using historical Walmart data.
 - **Interactive Dashboard:** Filters forecasting results by store and department.
 - **Model Performance Monitoring:** Compares machine learning predictions with a baseline forecast.
 - **Business Insights:** Displays forecast accuracy, bias, and potential areas for investigation.
